@@ -87,7 +87,7 @@ module Anystyle
         :year
       when /\d{4}\s*[—–-]+\s*\d{4}/
         :'year-range'
-      when /\d+\s*[—–-]+\s*\d+/, /^[^[:alnum:]]*pp?\.\d*[^[:alnum:]]*$/, /^((pp?|s)\.?|pages?)$/i
+      when /\d+\s*[—–-]+\s*\d+/, /^[^[:alnum:]]*pp?\.\d*[^[:alnum:]]*$/, /^((pp?|s)\.?|pages?|hal|hlm)$/i
         :page
       when /^\d$/
         :single
@@ -183,7 +183,7 @@ module Anystyle
       case
       when s =~ /dissertation abstract/i
         :dissertaion
-      when s =~ /proceeding/i
+      when s =~ /proceeding|prosiding/i
         :proceedings
       when stripped =~ /^in$/i && sequence[offset+1].to_s =~ /^[[:upper:]]/ && sequence[offset-1].to_s =~ /["'”’´‘“`\.;,]$/
         :collection
@@ -196,7 +196,7 @@ module Anystyle
       case token
       when /retrieved/i
         :retrieved
-      when /isbn/i
+      when /is[bs]n/i
         :isbn
       when /^doi:/i
         :doi

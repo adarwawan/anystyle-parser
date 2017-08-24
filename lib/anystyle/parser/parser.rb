@@ -211,7 +211,7 @@ module Anystyle
         case
         when keys.include?(:journal)
           hash[:type] = :article
-        when text =~ /proceedings/i
+        when text =~ /proceedings|IC([A-Z]*)/i
           hash[:type] = :inproceedings
         when keys.include?(:medium)
           if hash[:medium].to_s =~ /dvd|video|vhs|motion|television/i

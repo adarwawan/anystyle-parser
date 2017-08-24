@@ -17,13 +17,13 @@ module Anystyle
           h[k] = 3
         when /apr/i
           h[k] = 4
-        when /ma[yi]/i
+        when /m(ay|ei)/i
           h[k] = 5
         when /jun/i
           h[k] = 6
         when /jul/i
           h[k] = 7
-        when /aug/i
+        when /a(gs|gt|ug)/i
           h[k] = 8
         when /sep/i
           h[k] = 9
@@ -31,7 +31,7 @@ module Anystyle
           h[k] = 10
         when /nov/i
           h[k] = 11
-        when /dec/i
+        when /de[cs]/i
           h[k] = 12
         else
           h[k] = nil
@@ -138,7 +138,7 @@ module Anystyle
       end
 
       def strip_et_al(names)
-        !!names.sub!(/(\bet\s+(al|coll)\b|\bu\.\s*a\.|(\band|\&)\s+others).*$/, '')
+        !!names.sub!(/(\bet\s+(al|coll)\b|\bu\.\s*a\.|dll.|(\band|\&)\s+others).*$/, '')
       end
 
       def normalize_translator(hash)
